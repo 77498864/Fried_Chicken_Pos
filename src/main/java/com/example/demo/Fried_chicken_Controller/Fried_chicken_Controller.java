@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -36,8 +38,6 @@ public class Fried_chicken_Controller {
 		Fired_chicken_Model od = new Fired_chicken_Model();
 		od.setPhoneNum((String)request.get("phone"));
 		od.setOrderList((String)request.get("orderList"));
-		System.out.println(od.getPhoneNum());
-		System.out.println(od.getOrderList());
 		dao.save(od);
 		return 1;
 	}
