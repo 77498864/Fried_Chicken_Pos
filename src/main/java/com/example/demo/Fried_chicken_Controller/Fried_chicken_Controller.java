@@ -31,7 +31,16 @@ public class Fried_chicken_Controller {
 		
 		return itemDao.findAll();
 	}
-	
+	@PostMapping("/")
+	public int addOrder(@RequestBody Map<String, Object> request) {
+		Fired_chicken_Model od = new Fired_chicken_Model();
+		od.setPhoneNum((String)request.get("phone"));
+		od.setOrderList((String)request.get("orderList"));
+		System.out.println(od.getPhoneNum());
+		System.out.println(od.getOrderList());
+		dao.save(od);
+		return 1;
+	}
 	
 	@GetMapping("/list")
 	public List<Fired_chicken_Model> OrderList() {
